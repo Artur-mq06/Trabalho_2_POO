@@ -1,4 +1,4 @@
-public abstract class Acomodacao implements Cobravel{
+public abstract class Acomodacao{
     private String codigo;
     private int capacidadeMaxima;
     private double precoBaseDiaria;
