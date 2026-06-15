@@ -1,0 +1,3 @@
+QuartoPadrao;Q-101;2;150.0
+Chale;C-001;4;300.0;50.0;100.0
+SuiteRomantica;S-001;2;500.0;150.0;80.0

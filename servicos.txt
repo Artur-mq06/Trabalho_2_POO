@@ -1,0 +1,3 @@
+Refeicao;SRV-01;Jantar Completo;85.50
+Passeio;SRV-02;Trilha na Cachoeira;40.0;2
+AndarACavalo;SRV-03;Passeio a Cavalo;25.0;4
