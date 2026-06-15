@@ -4,6 +4,9 @@ public abstract class Acomodacao{
     private double precoBaseDiaria;
 
     public Acomodacao(String codigo, int capacidadeMaxima, double precoBaseDiaria) {
+        if (precoBaseDiaria < 0) {
+            throw new IllegalArgumentException("Erro: O preço base da diária não pode ser negativo!");
+        }
         this.codigo = codigo;
         this.capacidadeMaxima = capacidadeMaxima;
         this.precoBaseDiaria = precoBaseDiaria;
@@ -21,5 +24,10 @@ public abstract class Acomodacao{
     public void setCapacidadeMaxima(int capacidadeMaxima) { this.capacidadeMaxima = capacidadeMaxima; }
 
     public double getPrecoBaseDiaria() { return precoBaseDiaria; }
-    public void setPrecoBaseDiaria(double precoBaseDiaria) { this.precoBaseDiaria = precoBaseDiaria; }
+    public void setPrecoBaseDiaria(double precoBaseDiaria) {
+        if (precoBaseDiaria < 0) {
+            throw new IllegalArgumentException("Erro: O preço base da diária não pode ser negativo!");
+        }
+        this.precoBaseDiaria = precoBaseDiaria;
+    }
 }

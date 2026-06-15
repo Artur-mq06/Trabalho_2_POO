@@ -3,7 +3,10 @@ public class Hospede {
     private int idade;
     private String cpf;
 
-    public Hospede(String nome, int idade, String cpf){
+    public Hospede(String nome, int idade, String cpf) {
+        if (idade < 0) {
+            throw new IllegalArgumentException("Erro: A idade do hóspede não pode ser negativa!");
+        }
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
@@ -19,7 +22,10 @@ public class Hospede {
     public int getIdade(){
         return idade;
     }
-    public void setIdade(int idade){
+    public void setIdade(int idade) {
+        if (idade < 0) {
+            throw new IllegalArgumentException("Erro: A idade do hóspede não pode ser negativa!");
+        }
         this.idade = idade;
     }
 

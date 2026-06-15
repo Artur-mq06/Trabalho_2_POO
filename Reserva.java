@@ -10,6 +10,9 @@ public class Reserva {
     private List<Servico> servicosContratados;
 
     public Reserva(String codigo, Hospede hospedeResponsavel, Acomodacao acomodacao, int quantidadeHospedes, int quantidadeDias) {
+        if (quantidadeHospedes > acomodacao.getCapacidadeMaxima()) {
+            throw new IllegalArgumentException("Erro: A quantidade de hóspedes excede a capacidade máxima da acomodação!");
+        }
         this.codigo = codigo;
         this.hospedeResponsavel = hospedeResponsavel;
         this.acomodacao = acomodacao;
@@ -43,7 +46,12 @@ public class Reserva {
     public void setAcomodacao(Acomodacao acomodacao) { this.acomodacao = acomodacao; }
 
     public int getQuantidadeHospedes() { return quantidadeHospedes; }
-    public void setQuantidadeHospedes(int quantidadeHospedes) { this.quantidadeHospedes = quantidadeHospedes; }
+    public void setQuantidadeHospedes(int quantidadeHospedes) {
+        if (quantidadeHospedes > this.acomodacao.getCapacidadeMaxima()) {
+            throw new IllegalArgumentException("Erro: A quantidade de hóspedes excede a capacidade máxima da acomodação!");
+        }
+        this.quantidadeHospedes = quantidadeHospedes;
+    }
 
     public int getQuantidadeDias() { return quantidadeDias; }
     public void setQuantidadeDias(int quantidadeDias) { this.quantidadeDias = quantidadeDias; }
