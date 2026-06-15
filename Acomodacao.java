@@ -4,9 +4,13 @@ public abstract class Acomodacao{
     private double precoBaseDiaria;
 
     public Acomodacao(String codigo, int capacidadeMaxima, double precoBaseDiaria) {
+        if (codigo == null || codigo.trim().isEmpty()) {
+            throw new IllegalArgumentException("Erro: O código da acomodação não pode ser vazio!");
+        }
         if (precoBaseDiaria < 0) {
             throw new IllegalArgumentException("Erro: O preço base da diária não pode ser negativo!");
         }
+        
         this.codigo = codigo;
         this.capacidadeMaxima = capacidadeMaxima;
         this.precoBaseDiaria = precoBaseDiaria;
@@ -18,7 +22,12 @@ public abstract class Acomodacao{
     public abstract double calcPrecTotal(int quatidadeDias);
 
     public String getCodigo() { return codigo; }
-    public void setCodigo(String codigo) { this.codigo = codigo; }
+    public void setCodigo(String codigo) {
+        if (codigo == null || codigo.trim().isEmpty()) {
+            throw new IllegalArgumentException("Erro: O código da acomodação não pode ser vazio!");
+        }
+        this.codigo = codigo;
+    }
 
     public int getCapacidadeMaxima() { return capacidadeMaxima; }
     public void setCapacidadeMaxima(int capacidadeMaxima) { this.capacidadeMaxima = capacidadeMaxima; }
